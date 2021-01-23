@@ -12,12 +12,12 @@ let player2 = new Player({
 });
 /////////////////////////////////////
 /////////OPEN PROMTS/////////////////
-const p1Name = prompt('Player 1, enter your name.')
-player1.name = p1Name;
-// player1.name = "Computer";
-const p2Name = prompt('Okay, now Player 2!')
-player2.name = p2Name;
-// player2.name = "Sarah";
+// const p1Name = prompt('Player 1, enter your name.')
+// player1.name = p1Name;
+player1.name = "Computer";
+// const p2Name = prompt('Okay, now Player 2!')
+// player2.name = p2Name;
+player2.name = "Sarah";
 alert('✸ YOU HAVE ENTERED THE GAME OF WAR! ✸');
 console.log('War time Begins');
 // console.log('Press Q to quit at anytime');
@@ -60,8 +60,8 @@ function playGameDisplay() {
   //giving the card to each player
   console.log(`${player1.name} drew ${p1PlayCard.symbol} of ${p1PlayCard.suit}. ${player2.name} drew ${p2PlayCard.symbol} of ${p2PlayCard.suit}.`);//telling the players what card they drew.
   ///helpful info for debugging vvvvv
-  //   console.log(player1.hand.length, player2.hand.length);
-  // console.log(player1.hand.length + player2.hand.length); //should equal 50,  this does not including the 2 cards playing
+    console.log(player1.hand.length, player2.hand.length);
+  console.log(player1.hand.length + player2.hand.length); //should equal 50, does not include the 2 cards being played
 
    if (p1PlayCard.value > p2PlayCard.value) {
     // if player1 wins;
@@ -73,8 +73,9 @@ function playGameDisplay() {
    { console.log(" %c!!!!!!!✸!IT'S WAR TIME!✸!!!!!!!!!", 'color:red;');
    // alert('It\'s WAR!'); //turn on to stop at every war
   ///helpful info for debugging vvvvv
- // console.log(player1.hand.length, player2.hand.length);
- // console.log(player1.hand.length + player2.hand.length);
+ console.log(player1.hand.length, player2.hand.length);
+ console.log(player1.hand.length + player2.hand.length);
+ ///////////////////////////////////////////
    let spliceP1 = player1.hand.splice(-4); // array of 4 cards
    let spliceP2 = player2.hand.splice(-4); // array of 4 cards
    let p1WarCard = spliceP1.pop(); // pop 1 card off splice 4 cards (splicep1 is now 3 cards)
@@ -95,9 +96,10 @@ function playGameDisplay() {
        // console.log(player1.hand);
        console.log(`${player1.name} wins!`);
        console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
-     //console.log(player1.hand.length, player2.hand.length);
-     //console.log(player1.hand.length + player2.hand.length);;
-
+       ////////////
+     console.log(player1.hand.length, player2.hand.length);
+     console.log(player1.hand.length + player2.hand.length);;
+    ///////////
      } else if (p1WarCard.value < p2WarCard.value) {
        //player 1 war car is LESS than player 2 war card.
        //player 2 wins
@@ -112,8 +114,10 @@ function playGameDisplay() {
        // console.log(player2.hand);
        console.log(`${player2.name} wins!`);
        console.log(`${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
-     //   console.log(player1.hand.length, player2.hand.length);
-     // console.log(player1.hand.length + player2.hand.length);
+       ///////////////
+       console.log(player1.hand.length, player2.hand.length);
+     console.log(player1.hand.length + player2.hand.length);
+     /////////////////
      }
    }//this ends the war.
    else {
@@ -136,7 +140,7 @@ function endGameDisplay() {
   if (player1.hand.length < 4) {
     console.log("%c GAME OVER", "color:red");
     console.log(`${player1.name} has lost. ${player2.name} has won!`);
-    return console.log("To play again refresh page");
+    return console.log("%c To play again refresh page" , "color:green");
 
   } else if (player2.hand.length < 4) {
     console.log("%c GAME OVER", "color:red");
