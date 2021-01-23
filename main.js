@@ -82,93 +82,76 @@ function playGameDisplay() {
   let p1PlayCard = dealCard(player1);
   let p2PlayCard = dealCard(player2);
   console.log(`${player1.name} drew ${p1PlayCard.symbol} of ${p1PlayCard.suit}. ${player2.name} drew ${p2PlayCard.symbol} of ${p2PlayCard.suit}.`);
-  if (p1PlayCard.value > p2PlayCard.value) {
+    console.log(player1.hand.length, player2.hand.length);
+  console.log(player1.hand.length + player2.hand.length);
+
+   if (p1PlayCard.value > p2PlayCard.value) {
     // player1Wins();
     player1.hand.unshift(p1PlayCard, p2PlayCard);
     console.log(`${player1.name} wins!`);
     console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
 
-  } else if (p1PlayCard.value === p2PlayCard.value)
+  }
+  else if (p1PlayCard.value === p2PlayCard.value)
    { console.log("IT'S WAR TIME!!!!!!");
      // warTime();
      alert('It\'s WAR!');
-     console.log(player1.hand.length);
-     console.log(player2.hand.length);
+     // console.log(player1.hand.length);
+     // console.log(player2.hand.length);
      // playGameDisplay()
      let spliceP1 = player1.hand.splice(-4); // array of 4 cards
      let spliceP2 = player2.hand.splice(-4); // array of 4 cards
-     let p1WarCard = spliceP1.pop(); // pop 1 card off splice 4 cards
-     let p2WarCard = spliceP2.pop(); // pop 1 card off splice 4 cards
-     console.log(player1.hand.length);
-     console.log(player2.hand.length);
+     const p1WarCard = spliceP1.pop(); // pop 1 card off splice 4 cards
+     const p2WarCard = spliceP2.pop(); // pop 1 card off splice 4 cards
+     // console.log(player1.hand.length);
+     // console.log(player2.hand.length);
+     // console.log(p1WarCard);
      if (p1WarCard.value > p2WarCard.value) {
-       player1.hand = [p1PlayCard, p2PlayCard, ...spliceP1, ...spliceP2, p1WarCard, p2WarCard, ...player1.hand];
+       //player 1 war car is GREATER than player 2 war card.
+       console.log(`${player1.name} drew ${p1WarCard.symbol} of ${p1WarCard.suit}. ${player2.name} drew ${p2WarCard.symbol} of ${p2WarCard.suit}.`);
+       let player1wins = [p1PlayCard, p2PlayCard,   p1WarCard, p2WarCard];
+       let splices = [...player1wins,...spliceP1, ...spliceP2, ...player1.hand];
+       player1.hand = splices;
+       console.log(splices);
+       // console.log(player1.hand);
        console.log(`${player1.name} wins!`);
        console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
+
      } else if (p1WarCard.value < p2WarCard.value) {
-       player2.hand = [p1PlayCard, p2PlayCard, ...spliceP1, ...spliceP2, p1WarCard, p2WarCard, ...player2.hand];
+       //player 1 war car is LESS than player 2 war card.
+       console.log(`${player1.name} drew ${p1WarCard.symbol} of ${p1WarCard.suit}. ${player2.name} drew ${p2WarCard.symbol} of ${p2WarCard.suit}.`);
+       let player2wins = [p1PlayCard, p2PlayCard,   p1WarCard, p2WarCard];
+       let splices = [...player2wins,...spliceP1, ...spliceP2, ...player2.hand];
+       player2.hand = splices;
+       console.log(splices);
+       // console.log(player2.hand);
        console.log(`${player2.name} wins!`);
        console.log(`${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
-     } else {
+     }
+     else if (player1.hand.length < 5) {
+         return console.log("GAME OVER");
+       } else if (player2.hand.length < 5) {
+         return console.log("GAME OVER");
+       }
+     else {
        playGameDisplay ();
      }
-     }
-
-     else {
+   }
+   else {
    // player2Wins();
    player2.hand.unshift(p2PlayCard, p1PlayCard);
    console.log(`${player2.name} wins!`);
-   console.log(`${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
-
- }
+   console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
+   }
 };
-
-
-function warTime() {
-  let p1PlayCard = dealCard(player1);
-  let p2PlayCard = dealCard(player2);
-  alert('It\'s WAR TIME 2!');
-  // console.log('player 1 hand when war hits', player1.hand.length);
-  // console.log('player 2 hand when war hits', player2.hand.length);
-  console.log("you hit war again");
-  let spliceP1 = player1.hand.splice(-4); // array of 4 cards
-  let spliceP2 = player2.hand.splice(-4); // array of 4 cards
-  let p1WarCard = spliceP1.pop(); // card
-  let p2WarCard = spliceP2.pop(); // card
-  // console.log(p1WarCard, p2WarCard);
-  if (p1WarCard.value > p2WarCard.value) {
-    player1.hand = [p1PlayCard, p2PlayCard, ...spliceP1, ...spliceP2, p1WarCard, p2WarCard, ...player1.hand];
-    console.log(`${player1.name} has won! ${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
-  } else if (p1WarCard.value === p2WarCard.value) {
-    warTime();
-  }
-  else {
-    player2.hand = [p1PlayCard, p2PlayCard, ...spliceP1, ...spliceP2, p1WarCard, p2WarCard, ...player2.hand];
-    console.log(`${player2.name} has won! ${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
-  }
-};
-
-// function player1Wins() {
-//   let p1PlayCard = dealCard(player1);
-//   let p2PlayCard = dealCard(player2);
-//   player1.hand.unshift(p2PlayCard, p1PlayCard);
-//   console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
-// };
-
-// function player2Wins() {
-//   let p1PlayCard = dealCard(player1);
-//   let p2PlayCard = dealCard(player2);
-//   player2.hand.unshift(p2PlayCard, p1PlayCard);
-//   console.log(`${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
-// };
 
 console.log(playGameDisplay());
 
-while (player1.hand.length !== 0 && player2.hand.length !== 0) {
+while (!(player1.hand.length < 5) && !(player2.hand.length < 5)) {
   playGameDisplay();
 };
 
-// let u = 50;
+// let u = 100;
 // while (--u) {
 //   playGameDisplay();
 // };
