@@ -5,68 +5,6 @@
 // Sarah drew 8 of clubs. Mady drew Queen of clubs
 
 
-
-////////////////////////////////////////////////
-//promt user 1 to say their name
-//then promt user 2
-//store their names in a object
-//promt LET'S WAR
-//Press q to quit. Press any key to play:
-//*****of if you quit alret (you quit!)
-//promt this after every move
-
-//
-//make an object for the deck of cards
-//store number of cards
-//
-
-//create objects
-
-//WAR TIME flip 3 at once by the last one to flip
-//will be winner of the
-
-//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King
-//if order is important
-
-//have a function called deal
-//function / constructor called war
-//function quit
-//
-//constructor called deck
-//constructor user 1 and 2
-//trying to make the card set a random suit to it
-// var suit = ["Clubs", "Spades", "Hearts", "Diamonds"];
-// var randomSuit = suit[Math.floor(Math.random()*suit.length)];
-// console.log(randomSuit);
-// Card.prototype.symbol = function(symbol) {
-//   symbol.suit = randomSuit;
-// };
-
-
-//////////////TESTING IF RANDOM WOULD WORK ON ARRAY OF OBJECTS////
-//// let oneOfClubs = new Card({
-////   value: 1,
-////   suit: "HHH",
-////   symbol: "1",
-//// });
-////
-//// let twoOfClubs = new Card({
-////   suit: 'Club',
-////   symbol: 1,
-////   value: 2,
-//// });
-//// let threeOfClubs = new Card({
-////   suit: 'Hearts',
-////   symbol: 5,
-////   value: 5,
-//// });
-//// var p1Cards = [oneOfClubs, twoOfClubs, threeOfClubs];
-//// var randomSuit = p1Cards[Math.floor(Math.random()*p1Cards.length)];
-//// console.log(randomSuit);
-////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////
-/////////////PLAYERS ARE SET TO EMPTY//////
 function Player({name = "Computer", hand}){
   this.name = name,
   this.hand = hand;
@@ -90,341 +28,7 @@ player2.name = "Chad";
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-////////////////CARDS//////////////
-function Card({suit, symbol, value, used = false, index}){
-  this.suit = suit,
-  this.symbol = symbol,
-  this.value = value,
-  this.used = used,
-  this.index = index;
-};
-//////////Clubs//////////////
-let twoOfClubs = new Card({
-  suit:'clubs',
-  symbol:'2',
-  value:2,
-  index:0,
-});
-let threeOfClubs = new Card({
-  suit:'clubs',
-  symbol:'3',
-  value:3,
-  index:1,
-});
-let fourOfClubs = new Card({
-  suit:'clubs',
-  symbol:'4',
-  value:4,
-  index:2,
-});
-let fiveOfClubs = new Card({
-  suit:'clubs',
-  symbol:'5',
-  value:5,
-  index:3,
-});
-let sixOfClubs = new Card({
-  suit:'clubs',
-  symbol:'6',
-  value:6,
-  index:4,
-});
-let sevenOfClubs = new Card({
-  suit:'clubs',
-  symbol:'7',
-  value:7,
-  index:5,
-});
-let eightOfClubs = new Card({
-  suit:'clubs',
-  symbol:'8',
-  value:8,
-  index:6,
-});
-let nineOfClubs = new Card({
-  suit:'clubs',
-  symbol:'9',
-  value:9,
-  index:7,
-});
-let tenOfClubs = new Card({
-  suit:'clubs',
-  symbol:'10',
-  value:10,
-  index:8,
-});
-let jackOfClubs = new Card({
-  suit:'clubs',
-  symbol:'Jack',
-  value:11,
-  index:9,
-});
-let queenOfClubs = new Card({
-  suit:'clubs',
-  symbol:'Queen',
-  value:12,
-  index:10,
-});
-let kingOfClubs = new Card({
-  suit:'clubs',
-  symbol:'King',
-  value:13,
-  index:11,
-});
-let aceOfClubs = new Card({
-  suit:'clubs',
-  symbol:'14',
-  value:14,
-  index:12,
-});
-//////////////////////////
-//////////HEARTS///////////
-let twoOfHearts = new Card({
-  suit:'hearts',
-  symbol:'2',
-  value:2,
-  index:13,
-});
-let threeOfHearts = new Card({
-  suit:'hearts',
-  symbol:'3',
-  value:3,
-  index:14,
-});
-let fourOfHearts = new Card({
-  suit:'hearts',
-  symbol:'4',
-  value:4,
-  index:15,
-});
-let fiveOfHearts = new Card({
-  suit:'hearts',
-  symbol:'5',
-  value:5,
-  index:16,
-});
-let sixOfHearts = new Card({
-  suit:'hearts',
-  symbol:'6',
-  value:6,
-  index:17,
-});
-let sevenOfHearts = new Card({
-  suit:'hearts',
-  symbol:'7',
-  value:7,
-  index:18,
-});
-let eightOfHearts = new Card({
-  suit:'hearts',
-  symbol:'8',
-  value:8,
-  index:19,
-});
-let nineOfHearts = new Card({
-  suit:'hearts',
-  symbol:'9',
-  value:9,
-  index:20,
-});
-let tenOfHearts = new Card({
-  suit:'hearts',
-  symbol:'10',
-  value:10,
-  index:21,
-});
-let jackOfHearts = new Card({
-  suit:'hearts',
-  symbol:'Jack',
-  value:11,
-  index:22,
-});
-let queenOfHearts = new Card({
-  suit:'hearts',
-  symbol:'Queen',
-  value:12,
-  index:23,
-});
-let kingOfHearts = new Card({
-  suit:'hearts',
-  symbol:'King',
-  value:13,
-  index:24,
-});
-let aceOfHearts = new Card({
-  suit:'hearts',
-  symbol:'14',
-  value:14,
-  index:25,
-});
-//////////////////////////
-//////////SPADES///////////
-let twoOfSpades = new Card({
-  suit:'spades',
-  symbol:'2',
-  value:2,
-  index:26,
-});
-let threeOfSpades = new Card({
-  suit:'spades',
-  symbol:'3',
-  value:3,
-  index:27,
-});
-let fourOfSpades = new Card({
-  suit:'spades',
-  symbol:'4',
-  value:4,
-  index:28,
-});
-let fiveOfSpades = new Card({
-  suit:'spades',
-  symbol:'5',
-  value:5,
-  index:29,
-});
-let sixOfSpades = new Card({
-  suit:'spades',
-  symbol:'6',
-  value:6,
-  index:30,
-});
-let sevenOfSpades = new Card({
-  suit:'spades',
-  symbol:'7',
-  value:7,
-  index:31,
-});
-let eightOfSpades = new Card({
-  suit:'spades',
-  symbol:'8',
-  value:8,
-  index:32,
-});
-let nineOfSpades = new Card({
-  suit:'spades',
-  symbol:'9',
-  value:9,
-  index:33,
-});
-let tenOfSpades = new Card({
-  suit:'spades',
-  symbol:'10',
-  value:10,
-  index:34,
-});
-let jackOfSpades = new Card({
-  suit:'spades',
-  symbol:'Jack',
-  value:11,
-  index:35,
-});
-let queenOfSpades = new Card({
-  suit:'spades',
-  symbol:'Queen',
-  value:12,
-  index:36,
-});
-let kingOfSpades = new Card({
-  suit:'spades',
-  symbol:'King',
-  value:13,
-  index:37,
-});
-let aceOfSpades = new Card({
-  suit:'spades',
-  symbol:'14',
-  value:14,
-  index:38,
-});
-//////////////////////////
-//////////DIAMONDS///////////
-let twoOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'2',
-  value:2,
-  index:39,
-});
-let threeOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'3',
-  value:3,
-  index:40,
-});
-let fourOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'4',
-  value:4,
-  index:41,
-});
-let fiveOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'5',
-  value:5,
-  index:42,
-});
-let sixOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'6',
-  value:6,
-  index:43,
-});
-let sevenOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'7',
-  value:7,
-  index:44,
-});
-let eightOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'8',
-  value:8,
-  index:45,
-});
-let nineOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'9',
-  value:9,
-  index:46,
-});
-let tenOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'10',
-  value:10,
-  index:47,
-});
-let jackOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'Jack',
-  value:11,
-  index:48,
-});
-let queenOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'Queen',
-  value:12,
-  index:49,
-});
-let kingOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'King',
-  value:13,
-  index:50,
-});
-let aceOfDiamonds = new Card({
-  suit:'diamonds',
-  symbol:'14',
-  value:14,
-  index:51,
-});
 
-
-/////////CARD ARRAY////////////
-const cardArray = [twoOfClubs, threeOfClubs, fourOfClubs, fiveOfClubs, sixOfClubs, sevenOfClubs, eightOfClubs, nineOfClubs, tenOfClubs, jackOfClubs, queenOfClubs, kingOfClubs, aceOfClubs,twoOfHearts, threeOfHearts, fourOfHearts, fiveOfHearts, sixOfHearts, sevenOfHearts, eightOfHearts, nineOfHearts, tenOfHearts, jackOfHearts, queenOfHearts, kingOfHearts, aceOfHearts, twoOfSpades, threeOfSpades, fourOfSpades, fiveOfSpades, sixOfSpades, sevenOfSpades, eightOfSpades, nineOfSpades, tenOfSpades, jackOfSpades, queenOfSpades, kingOfSpades, aceOfSpades,twoOfDiamonds, threeOfDiamonds, fourOfDiamonds, fiveOfDiamonds, sixOfDiamonds, sevenOfDiamonds, eightOfDiamonds, nineOfDiamonds, tenOfDiamonds, jackOfDiamonds, queenOfDiamonds, kingOfDiamonds, aceOfDiamonds];
-
-// console.log(shuffle(cardArray));
-// console.log(cardArray.length);
-///////////////////////////////////////////////
 //////////SHUFFLING A DECK///////////////
 
   function shuffle(deck) {
@@ -482,13 +86,23 @@ function playGameDisplay() {
   if (p1PlayCard.value > p2PlayCard.value) {
     // player1Wins();
     player1.hand.unshift(p1PlayCard, p2PlayCard);
-    console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
     console.log(`${player1.name} wins!`);
+    console.log(`${player1.name} has ${player1.hand.length}. ${player2.name} has ${player2.hand.length}.`);
+
   } else if (p1PlayCard.value === p2PlayCard.value)
    { console.log("IT'S WAR TIME!!!!!!");
      // warTime();
      alert('It\'s WAR!');
+     console.log(player1.hand.length);
+     console.log(player2.hand.length);
      playGameDisplay()
+     let spliceP1 = player1.hand.splice(-4); // array of 4 cards
+     let spliceP2 = player2.hand.splice(-4); // array of 4 cards
+     let p1WarCard = spliceP1.pop(); // card
+     let p2WarCard = spliceP2.pop();
+     player1.hand = [p1PlayCard, p2PlayCard, ...spliceP1, ...spliceP2, p1WarCard, p2WarCard, ...player1.hand];
+     console.log(player1.hand.length);
+     console.log(player2.hand.length);
      // // console.log('player 1 hand when war hits', player1.hand.length);
      // // console.log('player 2 hand when war hits', player2.hand.length);
      // let spliceP1 = player1.hand.splice(-4); // array of 4 cards
@@ -516,8 +130,9 @@ function playGameDisplay() {
      else {
    // player2Wins();
    player2.hand.unshift(p2PlayCard, p1PlayCard);
-   console.log(`${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
    console.log(`${player2.name} wins!`);
+   console.log(`${player2.name} has ${player2.hand.length}. ${player1.name} has ${player1.hand.length}.`);
+
  }
 };
 
