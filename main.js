@@ -89,17 +89,10 @@ function playGameDisplay() {
 
 console.log(playGameDisplay());
 function doWar() {
-  if (player1.hand.length > 6 || player2.hand.length > 6) {
+
     cardsWon.push(...player1.hand.splice(-3), ...player2.hand.splice(-3));
     console.log(`The players each lay three cards on the table, then play a fourth...`);
     playGameDisplay();
-  }
-  else if (player1.hand.length < 5) {
-    player1.hand.length = 0;
-  }
-  else if(player2.hand.length < 5){
-    player2.hand.length = 0;
-  }
 };
 
 // function doWar() {
@@ -158,7 +151,7 @@ function doWar() {
 // };
 ////////////////////WHILE LOOP////
 //setting thie function to fire
-while (!(player1.hand.length = 0) && !(player2.hand.length = 0)) {
+while (!(player1.hand.length < 5) && !(player2.hand.length < 5)) {
   playGameDisplay();
 };
 // let u = 200;
