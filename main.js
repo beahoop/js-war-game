@@ -12,7 +12,7 @@
 ////6a. Access the cards that have been played, the players hand and take 3 cards and 1 more to the compare.
 ////6b. compare the winning war cards and set the function play to run again.
 //7. Make a while loop to keep the game running until a player is no longer able to play.
-//8. Let the players know the game is over and to refresh.  
+//8. Let the players know the game is over and to refresh.
 ///////////////////////////////////////////////////
 /////////SETTING PLAYERS OBJECTS UP////////////////////
 function Player({name = "Computer", hand}){
@@ -93,15 +93,23 @@ function gamePlay() {
   }
   else if (p1PlayCard.value === p2PlayCard.value){
     console.log(" %c!!!!!!!✸!IT'S WAR TIME!✸!!!!!!!!!", 'color:red;');
-    doWar();
+    if (player1.hand.length < 5) {
+      return player1.hand.length === 0;
+    }
+    else if (player2.hand.length < 5) {
+      return player2.hand.length === 0;
+    } else {
+        doWar();
+    }
   }
 };
 /////////////DO WAR function////////////////////////////
 function doWar() {
-  alert('War has begun press enter to continue!')
-    cardsWon.push(...player1.hand.splice(-4), ...player2.hand.splice(-4)); //pushing the 3 cards for war plus the orginal card that started war. Then when I set the function below to run again it will pop another card off the players deck.
-    console.log(`${player1.name} and ${player2.name} have each laid 3 cards down. Now to flip the war cards...` );
-    gamePlay();//Then the function gamePlay will run threw again.
+  console.log(player1.hand.length, player2.hand.length);
+    alert('WAR HAS BEGUN! Press enter to continue!');
+      cardsWon.push(...player1.hand.splice(-4), ...player2.hand.splice(-4)); //pushing the 3 cards for war plus the orginal card that started war. Then when I set the function below to run again it will pop another card off the players deck.
+      console.log(`${player1.name} and ${player2.name} have each laid 3 cards down. Now to flip the war cards...` );
+      gamePlay();
 };
 /////What to console.log after each play////////////
 ///////////////////////////////////////////////////
@@ -112,7 +120,7 @@ function definingHands(player) {
 ///////////////////////////////////////////////////
 ////////////////////WHILE LOOP////////////////////
 //setting thie function to fire
-while (!(player1.hand.length < 5) && !(player2.hand.length < 5)) {
+while (!(player1.hand.length === 0) && !(player2.hand.length === 0)) {
   gamePlay();
 };
 //keeping the game playing til one of the user's don't have enough cards to play war anymore.
