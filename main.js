@@ -13,8 +13,13 @@
 ////6b. compare the winning war cards and set the function play to run again.
 //7. Make a while loop to keep the game running until a player is no longer able to play.
 //8. Let the players know the game is over and to refresh.
-///////////////////////////////////////////////////
-document.querySelector('.html').style.backgroundImage = 'url(https://images.unsplash.com/photo-1541278107931-e006523892df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2851&q=80);';
+////////////////QUESTIONS FOR MADY////////////////////////
+//how to set something outsdie of a while lood
+//how to make cards a function instead of typing them all out
+//////use a nested for loop
+//how would I make the game function into protypes?
+//homebrew
+//logging into guthub repeating
 /////////SETTING PLAYERS OBJECTS UP////////////////////
 function Player({name = "Computer", hand}){
   this.name = name,
@@ -128,7 +133,8 @@ function definingHands(player) {
 ///////////////////////////////////////////////////
 ////////////////////WHILE LOOP////////////////////
 //setting thie function to fire
-while (!(player1.hand.length === 0) && !(player2.hand.length === 0)) {
+let stop4EverLoop = 4000;
+while (!(player1.hand.length === 0) && !(player2.hand.length === 0) || stop4EverLoop-- ) {
   gamePlay();
 };
 //keeping the game playing til one of the user's don't have enough cards to play war anymore.
