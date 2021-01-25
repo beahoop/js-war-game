@@ -134,7 +134,7 @@ function definingHands(player) {
 ////////////////////WHILE LOOP////////////////////
 //setting thie function to fire
 let stop4EverLoop = 4000;
-while (!(player1.hand.length === 0) && !(player2.hand.length === 0) || stop4EverLoop-- ) {
+while (!(player1.hand.length === 0) && !(player2.hand.length === 0) || --stop4EverLoop ) {
   gamePlay();
 };
 //keeping the game playing til one of the user's don't have enough cards to play war anymore.
