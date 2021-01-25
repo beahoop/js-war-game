@@ -105,7 +105,7 @@ function gamePlay() {
 };
 /////////////DO WAR function////////////////////////////
 function doWar() {
-  console.log(player1.hand.length, player2.hand.length);
+  // console.log(player1.hand.length, player2.hand.length);
     alert('WAR HAS BEGUN! Press enter to continue!');
       cardsWon.push(...player1.hand.splice(-4), ...player2.hand.splice(-4)); //pushing the 3 cards for war plus the orginal card that started war. Then when I set the function below to run again it will pop another card off the players deck.
       console.log(`${player1.name} and ${player2.name} have each laid 3 cards down. Now to flip the war cards...` );

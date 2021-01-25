@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+  background-image: url(https://images.unsplash.com/photo-1541278107931-e006523892df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2851&q=80);
+}
+
+
+/* .winner {
+  font-size: 55pt;
+  font-family: serif;
+  text-align: center;
+  color: orange;
+  padding: 50px;
+} */
+.winner{
+margin: 100px;
+ text-align: center;
+ font-family: sans-serif;
+ font-size: 5rem;
+ letter-spacing: 0.15rem;
+ text-transform: uppercase;
+ color: #fff;
+ text-shadow: -1px 1px #ef3550,
+              -2px 2px #f48fb1,
+              -4px 4px #7e57c2,
+              -6px 6px #2196f3,
+              -8px 8px #26c6da,
+              -10px 10px #43a047,
+              -12px 12px #eeff41,
+              -14px 14px #f9a825,
+              -16px 16px #ff5722;
+}
