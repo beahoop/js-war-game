@@ -1,3 +1,7 @@
+window.onload = function() {
+
+
+
 /////////////////LOGIC////OUTLINE///////////////////
 //1. Build cards into a deck with constructors
 //1a. Set a suit, symbol, value and index number to each (index 0-51)
@@ -14,13 +18,13 @@
 //7. Make a while loop to keep the game running until a player is no longer able to play.
 //8. Let the players know the game is over and to refresh.
 ////////////////QUESTIONS FOR MADY////////////////////////
-//how to set something outsdie of a while lood
 //how to make cards a function instead of typing them all out
 //////use a nested for loop
 //how would I make the game function into protypes?
 //homebrew
 //logging into guthub repeating
 /////////SETTING PLAYERS OBJECTS UP////////////////////
+// document.querySelector('.winner').style.background =
 function Player({name = "Computer", hand}){
   this.name = name,
   this.hand = hand;
@@ -133,8 +137,8 @@ function definingHands(player) {
 ///////////////////////////////////////////////////
 ////////////////////WHILE LOOP////////////////////
 //setting thie function to fire
-let stop4EverLoop = 4000;
-while (!(player1.hand.length === 0) && !(player2.hand.length === 0) || --stop4EverLoop ) {
+// let stop4EverLoop = 4000;
+while (!(player1.hand.length === 0) && !(player2.hand.length === 0)) {
   gamePlay();
 };
 //keeping the game playing til one of the user's don't have enough cards to play war anymore.
@@ -154,3 +158,4 @@ function endGameDisplay() {
 };
 endGameDisplay();
 //////////////////////////////////////////
+};
