@@ -14,6 +14,7 @@
 //7. Make a while loop to keep the game running until a player is no longer able to play.
 //8. Let the players know the game is over and to refresh.
 ///////////////////////////////////////////////////
+document.querySelector('.html').style.backgroundImage = 'url(https://images.unsplash.com/photo-1541278107931-e006523892df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2851&q=80);';
 /////////SETTING PLAYERS OBJECTS UP////////////////////
 function Player({name = "Computer", hand}){
   this.name = name,
@@ -24,11 +25,18 @@ let player1 = new Player({
 });
 let player2 = new Player({
 });
+
+///////////////////////////////////////////////////////
+// player1.name = document.getElementById('p1Name').value;
+// player2.name = document.getElementById('p2Name').value;
 /////////////SETTING PLAYERS NAMES/////////////////////
 function name(player, prompt) {
   if (prompt ===  "") {
     player.name = 'Computer';
-  } else {
+  } else if (prompt === null) {
+    alert("No name was enter, Computer will play.")
+  }
+  else {
     player.name = prompt;
   }
 };
@@ -127,10 +135,12 @@ while (!(player1.hand.length === 0) && !(player2.hand.length === 0)) {
 ///////////////////////////////////////////////
 /////////////END GAME DISPLAY//////////////////
 function endGameDisplay() {
-  if (player1.hand.length < 5) {
+  if (player1.hand.length === 0) {
+    document.querySelector(".winner").innerText = `${player2.name} has WON!`;
     console.log(`${player1.name} has lost. ${player2.name} has won!`);
     return console.log("%c To play again refresh page" , "color:green");
-  } else if (player2.hand.length < 5) {
+  } else if (player2.hand.length === 0) {
+    document.querySelector(".winner").innerText = `${player1.name} has WON!`;
     console.log("%c GAME OVER", "color:red");
     console.log(`${player2.name} has lost. ${player1.name} has won!`);
     return console.log("%c To play again refresh page" , "color:green");
