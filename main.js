@@ -1,7 +1,13 @@
-window.onload = function() {
+
+const image = document.querySelector('img');
+const imageCheck = setInterval(function () {
+  if(image.complete);
+  clearInterval(imageCheck)
+  start()
+}, 100);
 
 
-
+function start() {
 /////////////////LOGIC////OUTLINE///////////////////
 //1. Build cards into a deck with constructors
 //1a. Set a suit, symbol, value and index number to each (index 0-51)
@@ -62,19 +68,36 @@ alert('✸ YOU HAVE ENTERED THE GAME OF WAR! ✸');
 console.log('%cLet the game begin', 'color:red');
 ///////////////////////////////////////////////////////
 //////////SHUFFLING A DECK////////////////////////////
-function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
+// function getRandomArbitrary(min, max) {
+//   return Math.floor(Math.random() * (max - min) + min);
+// }
+
+// Game.prototype.shuffle = function() {
+//   let deck = this.deck.cards, i = deck.length, j, temp;
+//   while(--i) {
+//     j = Math.floor(Math.random() * (i + 1));
+//     temp = deck[i];
+//     deck[i] = deck[j];
+//     deck[j] = temp;
+//   }
+//   this.deck.cards = deck;
+// }
+
+
+
 function shuffle(deck) {
   let sDeck = [];
-    for( i = 1; i <= 52;){
+  for(let i = 0; i < deck.length; i++){
+    // the for loop runs a specific number of times
     let r = getRandomArbitrary(0, 52);
-    if (!sDeck.includes(deck[r])){
+    // what if you get the same random number more than once
+    if(!sDeck.includes(deck[r])){
       sDeck.push(deck[r]);
-      i++;
     }
-  } return sDeck;
+  }
+  return sDeck;
 };
+
 let shuffledDeck = shuffle(cardArray);
 ///////////SETTING PLAYERS HANDS/////////////////////
 player1.hand = shuffledDeck.splice(0, 26);
@@ -146,6 +169,7 @@ while (!(player1.hand.length === 0) && !(player2.hand.length === 0)) {
 /////////////END GAME DISPLAY//////////////////
 function endGameDisplay() {
   if (player1.hand.length === 0) {
+    //append this
     document.querySelector(".winner").innerText = `${player2.name} has WON!`;
     console.log(`${player1.name} has lost. ${player2.name} has won!`);
     return console.log("%c To play again refresh page" , "color:green");
