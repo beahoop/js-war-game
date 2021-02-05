@@ -68,9 +68,9 @@ alert('✸ YOU HAVE ENTERED THE GAME OF WAR! ✸');
 console.log('%cLet the game begin', 'color:red');
 ///////////////////////////////////////////////////////
 //////////SHUFFLING A DECK////////////////////////////
-// function getRandomArbitrary(min, max) {
-//   return Math.floor(Math.random() * (max - min) + min);
-// }
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
 
 // Game.prototype.shuffle = function() {
 //   let deck = this.deck.cards, i = deck.length, j, temp;
