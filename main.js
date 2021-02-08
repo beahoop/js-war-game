@@ -68,9 +68,9 @@ alert('✸ YOU HAVE ENTERED THE GAME OF WAR! ✸');
 console.log('%cLet the game begin', 'color:red');
 ///////////////////////////////////////////////////////
 //////////SHUFFLING A DECK////////////////////////////
-function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
+// function getRandomArbitrary(min, max) {
+//   return Math.floor(Math.random() * (max - min) + min);
+// }
 
 // Game.prototype.shuffle = function() {
 //   let deck = this.deck.cards, i = deck.length, j, temp;
@@ -84,21 +84,35 @@ function getRandomArbitrary(min, max) {
 // }
 
 
-
-function shuffle(deck) {
-  let sDeck = [];
-  for(let i = 0; i < deck.length; i++){
-    // the for loop runs a specific number of times
-    let r = getRandomArbitrary(0, 52);
-    // what if you get the same random number more than once
-    if(!sDeck.includes(deck[r])){
-      sDeck.push(deck[r]);
-    }
+function shuffle(cards) {
+  let deck = cards, i = deck.length, j, temp;
+  console.log(i);
+  while(--i) {
+    j = Math.floor(Math.random() * (i));
+    temp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = temp;
   }
-  return sDeck;
-};
+  return cards = deck;
+}
 
 let shuffledDeck = shuffle(cardArray);
+
+
+// function shuffle(deck) {
+//   let sDeck = [];
+//   for(let i = 0; i < deck.length; i++){
+//     // the for loop runs a specific number of times
+//     let r = getRandomArbitrary(0, 52);
+//     // what if you get the same random number more than once
+//     if(!sDeck.includes(deck[r])){
+//       sDeck.push(deck[r]);
+//     }
+//   }
+//   return sDeck;
+// };
+//
+// let shuffledDeck = shuffle(cardArray);
 ///////////SETTING PLAYERS HANDS/////////////////////
 player1.hand = shuffledDeck.splice(0, 26);
 player2.hand = shuffledDeck;
